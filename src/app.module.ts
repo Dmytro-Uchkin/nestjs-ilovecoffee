@@ -5,9 +5,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
+    CommonModule,
     CoffeesModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
@@ -26,7 +28,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         autoLoadEntities: true,
         synchronize: true,
       }),
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
