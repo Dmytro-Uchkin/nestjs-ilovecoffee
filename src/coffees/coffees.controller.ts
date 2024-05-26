@@ -34,13 +34,11 @@ export class CoffeesController {
   }
 
   @Post()
-  @Public()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
     return this.coffeesService.create(createCoffeeDto);
   }
 
   @Patch(':id')
-  @Public()
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateCoffeeDto: UpdateCoffeeDto,
